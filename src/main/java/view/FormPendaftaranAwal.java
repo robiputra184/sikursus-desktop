@@ -77,7 +77,7 @@ public class FormPendaftaranAwal extends javax.swing.JFrame {
         });
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel7.setText("Form Pendaftaran Khusus");
+        jLabel7.setText("Form Pendaftaran Kursus");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
