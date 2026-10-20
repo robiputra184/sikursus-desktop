@@ -37,6 +37,20 @@ public class DemoInheritance {
             System.out.println(orang.getInfo());
         }
 
+        System.out.println("INSTANCEOF");
+        for (Orang o : daftarOrang) {
+            // 1. Memastikan object benar-benar Peserta sebelum casting (Pilihan A)
+            if (o instanceof Peserta) { 
+                
+                // 2. Melakukan casting menjadi Peserta setelah terbukti aman
+                Peserta p = (Peserta) o; 
+                
+                // 3. Mengakses data khusus milik Peserta yang tidak ada di Orang / Instruktur
+                System.out.println("Nama Peserta: " + p.getNama() + " | NIM: " + p.getNim());
+            }
+        }
+        System.out.println("===================================\n");
+        
         System.out.println("Jumlah object: " + daftarOrang.size());
     }
 }
