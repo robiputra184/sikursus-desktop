@@ -39,7 +39,7 @@ public class DemoInheritance {
 
         System.out.println("INSTANCEOF");
         for (Orang o : daftarOrang) {
-            // 1. Memastikan object benar-benar Peserta sebelum casting (Pilihan A)
+            // 1. Memastikan object benar-benar Peserta sebelum casting
             if (o instanceof Peserta) { 
                 
                 // 2. Melakukan casting menjadi Peserta setelah terbukti aman
