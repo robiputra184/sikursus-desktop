@@ -1,0 +1,75 @@
+=========================================================
+CATATAN PENGUJIAN PRAKTIKUM PBO PERTEMUAN 11
+Menu, Navigasi, Login, dan Integrasi Modul
+Project: SIKURSUS Desktop
+=========================================================
+
+Nama     : Robi Fernando Putra
+NIM      : 2924011
+Kelas    : IF 5A
+Tanggal Pengujian : 10 November 2026
+
+=========================================================
+HASIL PENGUJIAN END-TO-END (T01 - T12)
+=========================================================
+
+[✓] T01 - Username dan password kosong
+    Skenario : Membiarkan field username dan password kosong lalu klik Login.
+    Hasil    : Muncul pesan "Username dan password wajib diisi". Aplikasi tidak masuk ke Dashboard.
+
+[✓] T02 - Username benar, password salah
+    Skenario : Mengisi username 'admin' dengan password yang salah.
+    Hasil    : Muncul pesan "Login gagal. Periksa username, password, atau status user.". Field password otomatis dikosongkan.
+
+[✓] T03 - Login sebagai ADMIN
+    Skenario : Login dengan username 'admin' dan password 'Admin@123'.
+    Hasil    : Dashboard terbuka. Label menampilkan role ADMIN. Menu Master (Peserta, Instruktur, Kursus, Kelas) aktif dan dapat diklik.
+
+[✓] T04 - Login sebagai OPERATOR
+    Skenario : Logout, lalu login dengan username 'operator' dan password 'Operator@123'.
+    Hasil    : Dashboard terbuka. Label menampilkan role OPERATOR. Menu Instruktur, Kursus, dan Kelas terlihat nonaktif (disabled/berwarna abu-abu).
+
+[✓] T05 - Mencegah Instance Ganda (WindowManager)
+    Skenario : Mengklik menu Master -> Peserta sebanyak 5 kali berturut-turut.
+    Hasil    : Hanya satu jendela PesertaFrame yang terbuka (tidak menumpuk/berkali-kali).
+
+[✓] T06 - Menutup Form Child
+    Skenario : Menutup PesertaFrame menggunakan tombol 'X' di pojok kanan atas.
+    Hasil    : PesertaFrame tertutup, namun Dashboard tetap hidup (aplikasi tidak ikut keluar/force close).
+
+[✓] T07 - Membuka Kembali Form Child
+    Skenario : Mengklik menu Master -> Peserta kembali setelah form sebelumnya ditutup.
+    Hasil    : PesertaFrame dapat dibuat dan dibuka kembali dengan normal.
+
+[✓] T08 - Membuka Master Lain sebagai ADMIN
+    Skenario : Login sebagai ADMIN, lalu membuka menu Instruktur, Kursus, dan Kelas.
+    Hasil    : Form tampil dengan benar dan Dashboard tetap aktif di background.
+
+[✓] T09 - Logout dengan Child Form Terbuka
+    Skenario : Membuka PesertaFrame, lalu memilih menu Keluar -> Logout.
+    Hasil    : Muncul konfirmasi logout. Jika pilih Yes, semua child form ditutup, session dihapus, dan aplikasi kembali ke LoginFrame.
+
+[✓] T10 - Database Error Handling
+    Skenario : Menghentikan service MySQL di Laragon, lalu mencoba login.
+    Hasil    : Muncul pesan error database (Database Error). Aplikasi tidak crash dan memberikan penjelasan error yang jelas.
+
+[✓] T11 - Portabilitas Icon (Resource Project)
+    Skenario : Memindahkan folder project ke direktori/folder lain di komputer, lalu menjalankan aplikasi.
+    Hasil    : Icon pada menu Master tetap tampil dengan normal karena dimuat dari resource project, bukan path absolut komputer.
+
+[✓] T12 - Tutup Aplikasi
+    Skenario : Memilih menu Keluar -> Tutup Aplikasi.
+    Hasil    : Muncul dialog konfirmasi "Tutup aplikasi SIKURSUS?". Jika pilih Yes, program keluar sepenuhnya (System.exit).
+
+=========================================================
+URUTAN DEMO YANG DILAKUKAN
+=========================================================
+Run Project -> Login ADMIN -> Open Master -> Test duplicate (5x klik) -> Logout -> Login OPERATOR -> Check role (menu disabled).
+
+=========================================================
+KESIMPULAN
+=========================================================
+Seluruh skenario pengujian (T01 - T12) telah berhasil dijalankan sesuai dengan Definition of Done (DoD) Pertemuan 11. 
+Aplikasi SIKURSUS Desktop telah terintegrasi dengan sistem login, role-based access control, dan navigasi antar modul yang stabil.
+
+[Robi F.P]
