@@ -45,7 +45,7 @@ public class PesertaFrame extends JFrame {
     // ================= CONSTRUCTOR =================
     public PesertaFrame() {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        
+
         setTitle("Master Data Peserta - SIKURSUS Desktop");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setMinimumSize(new Dimension(950, 700));
@@ -98,7 +98,7 @@ public class PesertaFrame extends JFrame {
         // Inisialisasi komponen form
         txtNim = createField();
         txtNama = createField();
-        
+
         cmbGender = new JComboBox<>(new String[]{
             "-- Pilih Jenis Kelamin --",
             "Laki-laki",
@@ -116,12 +116,14 @@ public class PesertaFrame extends JFrame {
         JButton btnHapus = createButton("Hapus");
         JButton btnReset = createButton("Reset");
         JButton btnCetakData = createButton("Cetak Semua");
+        JButton btnCetak = createButton("Cetak"); // >>> BARU <<< (tombol JasperReports sesuai modul)
 
         btnSimpan.addActionListener(e -> simpanData());
         btnUbah.addActionListener(e -> ubahData());
         btnHapus.addActionListener(e -> hapusData());
         btnReset.addActionListener(e -> resetForm());
         btnCetakData.addActionListener(e -> cetakDataPeserta());
+        btnCetak.addActionListener(e -> btnCetakActionPerformed(e)); // >>> BARU <<< (hubungkan lambda ke method modul)
 
         // Panel Tombol
         JPanel panelTombol = new JPanel(new FlowLayout(FlowLayout.CENTER, 8, 4));
@@ -131,6 +133,7 @@ public class PesertaFrame extends JFrame {
         panelTombol.add(btnHapus);
         panelTombol.add(btnReset);
         panelTombol.add(btnCetakData);
+        panelTombol.add(btnCetak); // >>> BARU <<<
 
         // Grid Input
         int row = 0;
@@ -472,6 +475,11 @@ public class PesertaFrame extends JFrame {
             JOptionPane.showMessageDialog(this, "Gagal mencetak:\n" + ex.getMessage(),
                 "Kesalahan Cetak", JOptionPane.ERROR_MESSAGE);
         }
+    }
+
+    // >>> BARU <<< Method pemanggil laporan JasperReports (sesuai modul Pertemuan 12 Langkah 10.3)
+    private void btnCetakActionPerformed(java.awt.event.ActionEvent evt) {
+        report.ReportService.tampilkanLaporanPeserta();
     }
 
     // ================= MAIN =================
