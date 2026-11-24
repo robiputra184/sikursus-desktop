@@ -55,9 +55,9 @@ FROM peserta ORDER BY nama ASC]]>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="44" splitType="Stretch">
+		<band height="50" splitType="Stretch">
 			<staticText>
-				<reportElement x="227" y="10" width="100" height="30" uuid="62ee9796-9db6-4ed0-830d-5e6989ab8093"/>
+				<reportElement x="227" y="10" width="100" height="40" uuid="62ee9796-9db6-4ed0-830d-5e6989ab8093"/>
 				<textElement textAlignment="Center"/>
 				<text><![CDATA[SIKURSUS Desktop - Pemrograman Berorientasi Objek]]></text>
 			</staticText>

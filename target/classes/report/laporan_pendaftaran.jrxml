@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.5.final using JasperReports Library version 6.21.5-74d586df47b25dbd05bd0957999819196e59934a  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="laporan_pendaftaran" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6ad39a1d-1c83-4fe9-96c7-718a5eb248f8">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="SIKURSUS MySQL"/>
+	<parameter name="P_ID_PENDAFTARAN" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[1]]></defaultValueExpression>
+	</parameter>
+	<queryString language="SQL">
+		<![CDATA[SELECT p.id_pendaftaran, p.tanggal_daftar, 
+       p.status AS status_pendaftaran,
+       ps.nim, ps.nama AS nama_peserta, ps.prodi, ps.no_hp,
+       kls.nama_kelas, 
+       krs.kode_kursus, krs.nama_kursus, krs.level, krs.biaya,
+       ins.nama AS nama_instruktur
+FROM pendaftaran p
+INNER JOIN peserta ps ON p.id_peserta = ps.id_peserta
+INNER JOIN kelas kls ON p.id_kelas = kls.id_kelas
+INNER JOIN kursus krs ON kls.id_kursus = krs.id_kursus
+INNER JOIN instruktur ins ON kls.id_instruktur = ins.id_instruktur
+WHERE p.id_pendaftaran = $P{P_ID_PENDAFTARAN}
+ORDER BY p.id_pendaftaran;]]>
+	</queryString>
+	<field name="id_pendaftaran" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="id_pendaftaran"/>
+		<property name="com.jaspersoft.studio.field.label" value="id_pendaftaran"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pendaftaran"/>
+	</field>
+	<field name="tanggal_daftar" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="tanggal_daftar"/>
+		<property name="com.jaspersoft.studio.field.label" value="tanggal_daftar"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pendaftaran"/>
+	</field>
+	<field name="status_pendaftaran" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="status"/>
+		<property name="com.jaspersoft.studio.field.label" value="status_pendaftaran"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pendaftaran"/>
+	</field>
+	<field name="nim" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nim"/>
+		<property name="com.jaspersoft.studio.field.label" value="nim"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="peserta"/>
+	</field>
+	<field name="nama_peserta" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nama"/>
+		<property name="com.jaspersoft.studio.field.label" value="nama_peserta"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="peserta"/>
+	</field>
+	<field name="prodi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="prodi"/>
+		<property name="com.jaspersoft.studio.field.label" value="prodi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="peserta"/>
+	</field>
+	<field name="no_hp" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="no_hp"/>
+		<property name="com.jaspersoft.studio.field.label" value="no_hp"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="peserta"/>
+	</field>
+	<field name="nama_kelas" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nama_kelas"/>
+		<property name="com.jaspersoft.studio.field.label" value="nama_kelas"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="kelas"/>
+	</field>
+	<field name="kode_kursus" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="kode_kursus"/>
+		<property name="com.jaspersoft.studio.field.label" value="kode_kursus"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="kursus"/>
+	</field>
+	<field name="nama_kursus" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nama_kursus"/>
+		<property name="com.jaspersoft.studio.field.label" value="nama_kursus"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="kursus"/>
+	</field>
+	<field name="level" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="level"/>
+		<property name="com.jaspersoft.studio.field.label" value="level"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="kursus"/>
+	</field>
+	<field name="biaya" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="biaya"/>
+		<property name="com.jaspersoft.studio.field.label" value="biaya"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="kursus"/>
+	</field>
+	<field name="nama_instruktur" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nama"/>
+		<property name="com.jaspersoft.studio.field.label" value="nama_instruktur"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="instruktur"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="227" y="30" width="100" height="49" uuid="debec8e6-3ac1-448a-87f1-628e22cc1023"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[LAPORAN PENDAFTARAN KURSUS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="50" splitType="Stretch">
+			<staticText>
+				<reportElement x="227" y="10" width="100" height="40" uuid="299b81d2-d7cb-460c-9b9f-130c5c71cfe3"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[SIKURSUS Desktop - Pemrograman Berorientasi Objek]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="-10" y="20" width="70" height="30" uuid="5273e683-c67b-4952-b837-1fe9d829f388"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="60" y="20" width="70" height="30" uuid="e7de7247-f200-4ef0-be68-b7fe158d633f">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[NIM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="20" width="70" height="30" uuid="0bde9e00-becf-4351-9aff-10d37da346bc">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Peserta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="20" width="70" height="30" uuid="cdf8819f-3fe0-4335-8ec2-f371e65bdb46">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Kelas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="270" y="20" width="70" height="30" uuid="c4456c1e-4a9f-4d6f-b795-6ea5526b66a2">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Kursus]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="340" y="20" width="70" height="30" uuid="ee7ddb63-dde6-48bb-9cb7-7c04df8ff905">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Instruktur]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="410" y="20" width="70" height="30" uuid="a9417dff-a1ea-4e27-b887-89cf8f29d69d">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Tanggal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="480" y="20" width="80" height="30" uuid="21d09ffa-d450-4a7b-9284-98e7ed87a098">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Status]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="39" splitType="Stretch">
+			<textField>
+				<reportElement x="-10" y="0" width="70" height="30" uuid="50130e18-1503-4647-8382-4cbb1495f323">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fdd9bf02-d638-40d6-9445-e6f2a38306ad"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{id_pendaftaran}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="60" y="0" width="70" height="30" uuid="e605b020-0999-4b3d-afb6-a17fff74465c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5d16582c-197d-46e3-a1d3-1967916399c6"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{nim}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="130" y="0" width="71" height="30" uuid="10c7b607-0e9c-443c-a1a5-81d1113268ed">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="878f7324-d6b3-4360-9a9a-6b7dd2c5366c"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{nama_peserta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="0" width="70" height="30" uuid="a8b3ed38-722f-44b6-a12f-0c96a252c40c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e061584c-3b19-4457-b943-bad03bfef906"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{nama_kelas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="270" y="0" width="70" height="30" uuid="546c3d72-42ed-4543-97cf-f4f13e3d2673">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5149b2d0-36b3-4e62-94cc-ec16813bbaa1"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{nama_kursus}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="340" y="0" width="70" height="30" uuid="7efc9044-3fc7-4b2d-ab65-ac10c125b8d3">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="aac48755-99fe-4464-a31d-9f883e095f5c"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{nama_instruktur}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="410" y="0" width="70" height="30" uuid="ff38f6fd-d112-4871-8cf8-83a6db040730">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ddc4cc10-eaf1-46b6-bbc2-be853fc0cb09"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{tanggal_daftar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="500" y="0" width="50" height="30" uuid="ff363a98-8197-4870-94ba-fd494290585c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8b054154-5f95-492c-9a58-619df753beac"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{status_pendaftaran}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="60" splitType="Stretch">
+			<textField>
+				<reportElement x="470" y="30" width="100" height="30" uuid="9168b2e7-db72-4638-8ddf-63afc9828983"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

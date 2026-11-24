@@ -7,6 +7,7 @@ import model.User;
 import util.UserSession;
 import java.net.URL;
 import javax.swing.ImageIcon;
+import report.ReportService;
 import util.WindowManager;
 
 public class DashboardFrame extends javax.swing.JFrame {
@@ -86,6 +87,7 @@ public class DashboardFrame extends javax.swing.JFrame {
         menuLaporan = new javax.swing.JMenu();
         miLaporanPeserta = new javax.swing.JMenuItem();
         miLaporanPendaftaran = new javax.swing.JMenuItem();
+        miLaporanPembayaran = new javax.swing.JMenuItem();
         menuKeluar = new javax.swing.JMenu();
         miLogout = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
@@ -175,6 +177,10 @@ public class DashboardFrame extends javax.swing.JFrame {
         miLaporanPendaftaran.setText("Laporan Pendaftaran");
         miLaporanPendaftaran.addActionListener(this::miLaporanPendaftaranActionPerformed);
         menuLaporan.add(miLaporanPendaftaran);
+
+        miLaporanPembayaran.setText("Laporan Pembayaran");
+        miLaporanPembayaran.addActionListener(this::miLaporanPembayaranActionPerformed);
+        menuLaporan.add(miLaporanPembayaran);
 
         jMenuBar1.add(menuLaporan);
 
@@ -274,7 +280,7 @@ public class DashboardFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_miLaporanPesertaActionPerformed
 
     private void miLaporanPendaftaranActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miLaporanPendaftaranActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_miLaporanPendaftaranActionPerformed
 
     private void miTutupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miTutupActionPerformed
@@ -291,6 +297,10 @@ public class DashboardFrame extends javax.swing.JFrame {
     JOptionPane.showMessageDialog(this,
     "SIKURSUS Desktop\nProject PBO - Program Studi Informatika");        
     }//GEN-LAST:event_miTentangActionPerformed
+
+    private void miLaporanPembayaranActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miLaporanPembayaranActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_miLaporanPembayaranActionPerformed
 
     /**
      * @param args the command line arguments
@@ -332,6 +342,7 @@ public class DashboardFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem miInstruktur;
     private javax.swing.JMenuItem miKelas;
     private javax.swing.JMenuItem miKursus;
+    private javax.swing.JMenuItem miLaporanPembayaran;
     private javax.swing.JMenuItem miLaporanPendaftaran;
     private javax.swing.JMenuItem miLaporanPeserta;
     private javax.swing.JMenuItem miLogout;

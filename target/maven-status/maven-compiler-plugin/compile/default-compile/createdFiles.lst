@@ -2,6 +2,7 @@ app\UjiValidasi$5.class
 view\KursusFrame.class
 latihan\LatihanBiayaKursus.class
 dao\PesertaDAO.class
+view\PendaftaranFrame.class
 app\Main.class
 view\FormPeserta$1.class
 view\FormPendaftaranAwal$1.class
@@ -32,6 +33,7 @@ view\PesertaFrame$1.class
 view\LoginFrame.class
 view\FormPendaftaranAwal$3.class
 view\KelasFrame.class
+view\LaporanPembayaranFrame.class
 app\UjiValidasi$7.class
 app\DemoPolymorphism.class
 config\TestDatabase.class
